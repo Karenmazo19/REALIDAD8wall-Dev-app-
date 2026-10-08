@@ -28,46 +28,6 @@
       "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
       "order": 0.4038940050501252
     },
-    "729478ae-d067-4e0c-a753-66c2e9efb625": {
-      "components": {
-        "8fe14f4e-4311-4b03-807d-a34c9c11368d": {
-          "id": "8fe14f4e-4311-4b03-807d-a34c9c11368d",
-          "name": "example-component",
-          "parameters": {}
-        }
-      },
-      "geometry": {
-        "depth": 1,
-        "height": 1,
-        "type": "box",
-        "width": 1
-      },
-      "id": "729478ae-d067-4e0c-a753-66c2e9efb625",
-      "material": {
-        "color": "#7611b6",
-        "type": "basic",
-        "textureFiltering": "sharp"
-      },
-      "name": "Box",
-      "position": [
-        7.375615695685648,
-        0.5,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0,
-        1
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ],
-      "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
-      "order": 1.4038940050501252
-    },
     "a608ddd9-9379-464d-966f-5d8d8674c83c": {
       "camera": {
         "type": "perspective",
@@ -135,7 +95,7 @@
       "id": "37c50249-a8e7-4d52-988c-0a87743056e0",
       "position": [
         1.1813656883055659,
-        0,
+        -0.10540536536673512,
         0.026221022713913328
       ],
       "rotation": [
@@ -162,42 +122,38 @@
       "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
       "components": {},
       "name": "Caja",
-      "order": 6.2743193915127335
-    },
-    "ed0e2344-1ab2-4738-b073-ee30c9053582": {
-      "id": "ed0e2344-1ab2-4738-b073-ee30c9053582",
-      "position": [
-        0,
-        0,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0,
-        1
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ],
-      "geometry": {
-        "type": "cylinder",
-        "radius": 0.5,
-        "height": 1
-      },
-      "material": {
-        "type": "basic",
-        "color": "#FFFFFF"
-      },
-      "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
-      "components": {},
-      "name": "Cilindro",
-      "order": 7.285359253983164
+      "order": 13.5704996626279
     },
     "12822041-1ac7-4610-8baf-6b37e9aa4d91": {
       "id": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
+      "position": [
+        1.1483415372951413,
+        -0.2116758752693884,
+        0
+      ],
+      "rotation": [
+        -4.3297802811774664e-17,
+        0.7071067811865476,
+        -0.7071067811865475,
+        -4.329780281177467e-17
+      ],
+      "scale": [
+        0.08,
+        0.08,
+        0.08
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
+      "components": {},
+      "name": "Objetivo de la imagen",
+      "imageTarget": {
+        "name": "mi imagen-1"
+      },
+      "order": 9.14315945642193
+    },
+    "791a27c6-5633-4da4-ba96-b90f2048cb65": {
+      "id": "791a27c6-5633-4da4-ba96-b90f2048cb65",
       "position": [
         0,
         0,
@@ -216,13 +172,10 @@
       ],
       "geometry": null,
       "material": null,
-      "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
+      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
       "components": {},
-      "name": "Objetivo de la imagen",
-      "imageTarget": {
-        "name": "mi imagen-1"
-      },
-      "order": 9.14315945642193
+      "name": "mi_imagen-1.jpg",
+      "order": 2.6703822035150875
     }
   },
   "spaces": {
