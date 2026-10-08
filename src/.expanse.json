@@ -122,12 +122,13 @@
       "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
       "components": {},
       "name": "Caja",
-      "order": 13.5704996626279
+      "order": 13.5704996626279,
+      "hidden": true
     },
     "12822041-1ac7-4610-8baf-6b37e9aa4d91": {
       "id": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
       "position": [
-        1.1483415372951413,
+        1.16667211785878,
         -0.2116758752693884,
         0
       ],
@@ -176,6 +177,51 @@
       "components": {},
       "name": "mi_imagen-1.jpg",
       "order": 2.6703822035150875
+    },
+    "e3b9d378-dc83-4f34-9404-585156622b11": {
+      "id": "e3b9d378-dc83-4f34-9404-585156622b11",
+      "position": [
+        4.016809226840847,
+        -0.7782052078466877,
+        -0.7518741712541317
+      ],
+      "rotation": [
+        -4.329780281177466e-17,
+        0.7071067811865476,
+        -0.7071067811865475,
+        4.329780281177467e-17
+      ],
+      "scale": [
+        0.9746414794560624,
+        0.9746414794560624,
+        0.9746414794560624
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
+      "components": {
+        "show-model-on-image-target": {},
+        "4d2b6566-705f-4ca7-b855-86bd0e935fe2": {
+          "id": "4d2b6566-705f-4ca7-b855-86bd0e935fe2",
+          "name": "Model Animation Toggle",
+          "parameters": {
+            "target": {
+              "type": "entity",
+              "id": "791a27c6-5633-4da4-ba96-b90f2048cb65"
+            }
+          }
+        }
+      },
+      "gltfModel": {
+        "src": {
+          "type": "asset",
+          "asset": "assets/Untitled.glb"
+        },
+        "animationClip": "",
+        "loop": true
+      },
+      "name": "Untitled.glb",
+      "order": 4.364058424648521
     }
   },
   "spaces": {
