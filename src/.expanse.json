@@ -131,40 +131,12 @@
       "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
       "order": 0.6644431107322474
     },
-    "0dbbed06-2e45-4d48-b298-ae80c87061aa": {
-      "id": "0dbbed06-2e45-4d48-b298-ae80c87061aa",
-      "position": [
-        1.1808956362056704,
-        -0.07343822048092549,
-        0.003252157027464883
-      ],
-      "rotation": [
-        -4.3297802811774646e-17,
-        0.7071067811865477,
-        -0.7071067811865474,
-        -4.3297802811774664e-17
-      ],
-      "scale": [
-        0.07999999999999999,
-        0.08000000000000002,
-        0.08000000000000002
-      ],
-      "geometry": null,
-      "material": null,
-      "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
-      "components": {},
-      "name": "Objetivo de la imagen",
-      "imageTarget": {
-        "name": "logo"
-      },
-      "order": 3.0386445662690207
-    },
     "37c50249-a8e7-4d52-988c-0a87743056e0": {
       "id": "37c50249-a8e7-4d52-988c-0a87743056e0",
       "position": [
-        1.1983395655827458,
+        1.1813656883055659,
         0,
-        0
+        0.026221022713913328
       ],
       "rotation": [
         0,
@@ -223,6 +195,34 @@
       "components": {},
       "name": "Cilindro",
       "order": 7.285359253983164
+    },
+    "12822041-1ac7-4610-8baf-6b37e9aa4d91": {
+      "id": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
+      "components": {},
+      "name": "Objetivo de la imagen",
+      "imageTarget": {
+        "name": "mi imagen-1"
+      },
+      "order": 9.14315945642193
     }
   },
   "spaces": {
