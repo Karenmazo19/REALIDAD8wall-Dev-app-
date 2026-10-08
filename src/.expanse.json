@@ -200,7 +200,6 @@
       "material": null,
       "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
       "components": {
-        "show-model-on-image-target": {},
         "4d2b6566-705f-4ca7-b855-86bd0e935fe2": {
           "id": "4d2b6566-705f-4ca7-b855-86bd0e935fe2",
           "name": "Model Animation Toggle",
