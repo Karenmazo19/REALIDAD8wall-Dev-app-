@@ -1,0 +1,23 @@
+{
+  "type": "PLANAR",
+  "properties": {
+    "top": 0,
+    "left": 118,
+    "width": 708,
+    "height": 945,
+    "isRotated": false,
+    "originalWidth": 945,
+    "originalHeight": 945
+  },
+  "imagePath": "image-targets/arepa-03_luminance.png",
+  "metadata": null,
+  "name": "arepa-03",
+  "resources": {
+    "originalImage": "arepa-03_original.png",
+    "croppedImage": "arepa-03_cropped.png",
+    "thumbnailImage": "arepa-03_thumbnail.png",
+    "luminanceImage": "arepa-03_luminance.png"
+  },
+  "created": 1791932899486,
+  "updated": 1791932899486
+}

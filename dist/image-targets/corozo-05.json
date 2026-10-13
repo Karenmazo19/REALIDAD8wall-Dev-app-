@@ -1,0 +1,23 @@
+{
+  "type": "PLANAR",
+  "properties": {
+    "top": 0,
+    "left": 118,
+    "width": 708,
+    "height": 945,
+    "isRotated": false,
+    "originalWidth": 945,
+    "originalHeight": 945
+  },
+  "imagePath": "image-targets/corozo-05_luminance.png",
+  "metadata": null,
+  "name": "corozo-05",
+  "resources": {
+    "originalImage": "corozo-05_original.png",
+    "croppedImage": "corozo-05_cropped.png",
+    "thumbnailImage": "corozo-05_thumbnail.png",
+    "luminanceImage": "corozo-05_luminance.png"
+  },
+  "created": 1791931680638,
+  "updated": 1791931680638
+}

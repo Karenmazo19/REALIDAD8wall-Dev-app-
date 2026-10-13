@@ -1,0 +1,23 @@
+{
+  "type": "PLANAR",
+  "properties": {
+    "top": 0,
+    "left": 118,
+    "width": 708,
+    "height": 945,
+    "isRotated": false,
+    "originalWidth": 945,
+    "originalHeight": 945
+  },
+  "imagePath": "image-targets/coco-04_luminance.png",
+  "metadata": null,
+  "name": "coco-04",
+  "resources": {
+    "originalImage": "coco-04_original.png",
+    "croppedImage": "coco-04_cropped.png",
+    "thumbnailImage": "coco-04_thumbnail.png",
+    "luminanceImage": "coco-04_luminance.png"
+  },
+  "created": 1791933271911,
+  "updated": 1791933271911
+}

@@ -1,0 +1,23 @@
+{
+  "type": "PLANAR",
+  "properties": {
+    "top": 0,
+    "left": 118,
+    "width": 708,
+    "height": 945,
+    "isRotated": false,
+    "originalWidth": 945,
+    "originalHeight": 945
+  },
+  "imagePath": "image-targets/mamey-02_luminance.png",
+  "metadata": null,
+  "name": "mamey-02",
+  "resources": {
+    "originalImage": "mamey-02_original.png",
+    "croppedImage": "mamey-02_cropped.png",
+    "thumbnailImage": "mamey-02_thumbnail.png",
+    "luminanceImage": "mamey-02_luminance.png"
+  },
+  "created": 1791932198601,
+  "updated": 1791932198601
+}
