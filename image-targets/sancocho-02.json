@@ -1,0 +1,23 @@
+{
+  "type": "PLANAR",
+  "properties": {
+    "top": 0,
+    "left": 118,
+    "width": 708,
+    "height": 945,
+    "isRotated": false,
+    "originalWidth": 945,
+    "originalHeight": 945
+  },
+  "imagePath": "image-targets/sancocho-02_luminance.png",
+  "metadata": null,
+  "name": "sancocho-02",
+  "resources": {
+    "originalImage": "sancocho-02_original.png",
+    "croppedImage": "sancocho-02_cropped.png",
+    "thumbnailImage": "sancocho-02_thumbnail.png",
+    "luminanceImage": "sancocho-02_luminance.png"
+  },
+  "created": 1791931777718,
+  "updated": 1791931777718
+}
