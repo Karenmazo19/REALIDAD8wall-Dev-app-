@@ -178,12 +178,7 @@
         "4d2b6566-705f-4ca7-b855-86bd0e935fe2": {
           "id": "4d2b6566-705f-4ca7-b855-86bd0e935fe2",
           "name": "Model Animation Toggle",
-          "parameters": {
-            "target": {
-              "type": "entity",
-              "id": "791a27c6-5633-4da4-ba96-b90f2048cb65"
-            }
-          }
+          "parameters": {}
         }
       },
       "gltfModel": {
@@ -221,12 +216,7 @@
         "4d2b6566-705f-4ca7-b855-86bd0e935fe2": {
           "id": "4d2b6566-705f-4ca7-b855-86bd0e935fe2",
           "name": "Model Animation Toggle",
-          "parameters": {
-            "target": {
-              "type": "entity",
-              "id": "791a27c6-5633-4da4-ba96-b90f2048cb65"
-            }
-          }
+          "parameters": {}
         }
       },
       "gltfModel": {
@@ -264,9 +254,6 @@
       "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
       "components": {},
       "name": "corozo-05",
-      "imageTarget": {
-        "name": "corozo-05"
-      },
       "order": 7.439887924267067
     },
     "b6c3f923-a6d2-4bbe-ac36-cdebf0137c0c": {
