@@ -129,7 +129,7 @@
       "id": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
       "position": [
         1.434801270986635,
-        -0.2116758752693884,
+        -0.2255314688854301,
         0
       ],
       "rotation": [
@@ -158,109 +158,6 @@
         "name": "corozo-05"
       },
       "order": 4.570602677629608
-    },
-    "e3b9d378-dc83-4f34-9404-585156622b11": {
-      "id": "e3b9d378-dc83-4f34-9404-585156622b11",
-      "position": [
-        5.611124807081998,
-        0.061404597642002845,
-        1.3018171279231996
-      ],
-      "rotation": [
-        -4.3297802811774646e-17,
-        0.7071067811865476,
-        -0.7071067811865475,
-        4.3297802811774633e-17
-      ],
-      "scale": [
-        1.310075424102111,
-        1.310075424102111,
-        1.3100754241021118
-      ],
-      "geometry": null,
-      "material": null,
-      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
-      "components": {
-        "4d2b6566-705f-4ca7-b855-86bd0e935fe2": {
-          "id": "4d2b6566-705f-4ca7-b855-86bd0e935fe2",
-          "name": "Model Animation Toggle",
-          "parameters": {}
-        }
-      },
-      "gltfModel": {
-        "src": {
-          "type": "asset",
-          "asset": "assets/Untitled.glb"
-        },
-        "animationClip": "",
-        "loop": true
-      },
-      "name": "Untitled.glb",
-      "order": 4.364058424648521
-    },
-    "54f85793-04d8-4efa-93eb-bd1006a5b784": {
-      "id": "54f85793-04d8-4efa-93eb-bd1006a5b784",
-      "position": [
-        6.370908472818728,
-        -2.2038907945813313,
-        1.7807126515326335
-      ],
-      "rotation": [
-        -4.3297802811774646e-17,
-        0.7071067811865476,
-        -0.7071067811865475,
-        -4.329780281177465e-17
-      ],
-      "scale": [
-        1.44557659087956,
-        1.44557659087956,
-        1.4455765908795608
-      ],
-      "geometry": null,
-      "material": null,
-      "components": {
-        "4d2b6566-705f-4ca7-b855-86bd0e935fe2": {
-          "id": "4d2b6566-705f-4ca7-b855-86bd0e935fe2",
-          "name": "Model Animation Toggle",
-          "parameters": {}
-        }
-      },
-      "gltfModel": {
-        "src": {
-          "type": "asset",
-          "asset": "assets/Untitled.glb"
-        },
-        "animationClip": "",
-        "loop": true
-      },
-      "name": "Untitled.glb (1)",
-      "order": 5.963558273713209,
-      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91"
-    },
-    "f2532758-7310-4ab0-a6ae-4f4bb1d78235": {
-      "id": "f2532758-7310-4ab0-a6ae-4f4bb1d78235",
-      "position": [
-        0,
-        0,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0,
-        1
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ],
-      "geometry": null,
-      "material": null,
-      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
-      "components": {},
-      "name": "corozo-05",
-      "order": 7.439887924267067
     },
     "b6c3f923-a6d2-4bbe-ac36-cdebf0137c0c": {
       "id": "b6c3f923-a6d2-4bbe-ac36-cdebf0137c0c",
@@ -611,6 +508,70 @@
       },
       "name": "arrozcoco.glb",
       "order": 3.53234942452101
+    },
+    "39cb61f1-683d-4587-93db-b60848fa98e5": {
+      "id": "39cb61f1-683d-4587-93db-b60848fa98e5",
+      "position": [
+        0,
+        -1.4721400444042788e-16,
+        -0.66299293554163
+      ],
+      "rotation": [
+        0,
+        -1.848892746611747e-32,
+        0,
+        1
+      ],
+      "scale": [
+        0.9999999999999997,
+        1,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
+      "components": {},
+      "name": "corozo-05.png",
+      "order": 10.449977692046653
+    },
+    "c4dd888a-3ee2-4a35-95f5-4e99bfb14405": {
+      "id": "c4dd888a-3ee2-4a35-95f5-4e99bfb14405",
+      "position": [
+        -4.049884352601932,
+        2.7342922367389324e-16,
+        1.2314157498499483
+      ],
+      "rotation": [
+        0,
+        -3.697785493223494e-32,
+        0,
+        1
+      ],
+      "scale": [
+        0.9999999999999993,
+        1,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
+      "components": {
+        "3edb5c94-f0ed-4d32-9254-46ba472a31bc": {
+          "id": "3edb5c94-f0ed-4d32-9254-46ba472a31bc",
+          "name": "Model Animation Toggle",
+          "parameters": {}
+        }
+      },
+      "gltfModel": {
+        "src": {
+          "type": "asset",
+          "asset": "assets/Untitled.glb"
+        },
+        "animationClip": "",
+        "loop": true
+      },
+      "name": "Untitled.glb",
+      "order": 12.4397477382269
     }
   },
   "spaces": {
