@@ -258,11 +258,6 @@
               "id": "6d3abf69-bc4a-48b2-a811-d2eea16bd5ad"
             }
           }
-        },
-        "d919520d-f67c-4a3b-86a8-edfc4147b72a": {
-          "id": "d919520d-f67c-4a3b-86a8-edfc4147b72a",
-          "name": "Model Animation Toggle",
-          "parameters": {}
         }
       },
       "gltfModel": {
