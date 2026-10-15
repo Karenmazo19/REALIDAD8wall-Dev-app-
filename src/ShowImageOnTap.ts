@@ -98,8 +98,6 @@ ecs.registerComponent({
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
-    const imageTarget = getImageTargetEntity(world, eid)
-    const touchTarget = imageTarget || world.events.globalId
 
     const toggleCards = () => {
       const {costilla, mazorca, yuca, amee} = schemaAttribute.get(eid)
@@ -111,17 +109,17 @@ ecs.registerComponent({
 
     ecs.defineState('ready').initial()
       .onExit(() => taps.clear())
-      .listen(touchTarget, ecs.input.SCREEN_TOUCH_START, ({data}) => {
+      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
         taps.add(data.pointerId)
       })
-      .listen(touchTarget, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
+      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) taps.delete(data.pointerId)
       })
-      .listen(touchTarget, ecs.input.GESTURE_START, ({data}) => {
+      .listen(world.events.globalId, ecs.input.GESTURE_START, ({data}) => {
         if (data.touchCount > 1) taps.clear()
       })
-      .listen(touchTarget, ecs.input.SCREEN_TOUCH_END, ({data}) => {
+      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
         if (!taps.delete(data.pointerId)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
