@@ -1,6 +1,18 @@
 import * as ecs from '@8thwall/ecs'
 
-const registerImageToggle = (name: string, ignoreVideoTouches = false) => ecs.registerComponent({
+const maxTapMovement = 0.05
+
+const getImageTargetName = (world: ecs.World, eid: bigint) => {
+  for (let current: bigint | undefined = eid; current; current = world.getParent(current)) {
+    if (ecs.ImageTarget.has(world, current)) return ecs.ImageTarget.get(world, current).name
+  }
+  return undefined
+}
+
+const isImageTargetEvent = (data: unknown, targetName: string) =>
+  !!data && typeof data === 'object' && 'name' in data && data.name === targetName
+
+const registerImageToggle = (name: string) => ecs.registerComponent({
   name,
 
   schema: {
@@ -11,20 +23,22 @@ const registerImageToggle = (name: string, ignoreVideoTouches = false) => ecs.re
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
-    const maxTapMovement = 0.025
-
-    const isVideoTarget = (target?: bigint) => {
-      if (!ignoreVideoTouches) return false
-      for (let current = target; current; current = world.getParent(current)) {
-        if (ecs.VideoControls.has(world, current)) return true
-      }
-      return false
-    }
+    const targetName = getImageTargetName(world, eid)
+    let targetTracked = !targetName
 
     ecs.defineState('ready').initial()
       .onExit(() => taps.clear())
+      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_FOUND, ({data}) => {
+        if (targetName && isImageTargetEvent(data, targetName)) targetTracked = true
+      })
+      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_LOST, ({data}) => {
+        if (targetName && isImageTargetEvent(data, targetName)) {
+          targetTracked = false
+          taps.clear()
+        }
+      })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        taps.add(data.pointerId)
+        if (targetTracked) taps.add(data.pointerId)
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -35,7 +49,6 @@ const registerImageToggle = (name: string, ignoreVideoTouches = false) => ecs.re
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
         if (!taps.delete(data.pointerId)) return
-        if (isVideoTarget(data.target) || isVideoTarget(data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
 
@@ -50,7 +63,6 @@ const registerImageToggle = (name: string, ignoreVideoTouches = false) => ecs.re
 
 registerImageToggle('Show Image On Tap')
 registerImageToggle('Show Corozo On Tap')
-registerImageToggle('Show Image On Tap Outside Video', true)
 
 ecs.registerComponent({
   name: 'Show Sancocho Cards On Tap',
@@ -64,7 +76,8 @@ ecs.registerComponent({
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
-    const maxTapMovement = 0.025
+    const targetName = getImageTargetName(world, eid)
+    let targetTracked = !targetName
 
     const toggleCards = () => {
       const {costilla, mazorca, yuca, amee} = schemaAttribute.get(eid)
@@ -76,8 +89,17 @@ ecs.registerComponent({
 
     ecs.defineState('ready').initial()
       .onExit(() => taps.clear())
+      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_FOUND, ({data}) => {
+        if (targetName && isImageTargetEvent(data, targetName)) targetTracked = true
+      })
+      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_LOST, ({data}) => {
+        if (targetName && isImageTargetEvent(data, targetName)) {
+          targetTracked = false
+          taps.clear()
+        }
+      })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        taps.add(data.pointerId)
+        if (targetTracked) taps.add(data.pointerId)
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -105,7 +127,8 @@ ecs.registerComponent({
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
-    const maxTapMovement = 0.025
+    const targetName = getImageTargetName(world, eid)
+    let targetTracked = !targetName
 
     const toggleCards = () => {
       const {mamey, patilla} = schemaAttribute.get(eid)
@@ -118,8 +141,17 @@ ecs.registerComponent({
 
     ecs.defineState('ready').initial()
       .onExit(() => taps.clear())
+      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_FOUND, ({data}) => {
+        if (targetName && isImageTargetEvent(data, targetName)) targetTracked = true
+      })
+      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_LOST, ({data}) => {
+        if (targetName && isImageTargetEvent(data, targetName)) {
+          targetTracked = false
+          taps.clear()
+        }
+      })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        taps.add(data.pointerId)
+        if (targetTracked) taps.add(data.pointerId)
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)

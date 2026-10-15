@@ -28,6 +28,8 @@ ecs.registerComponent({
   },
 
   stateMachine: ({world, eid, schemaAttribute}) => {
+    const maxTapMovement = 0.05
+
     const belongsTo = (entity: bigint | undefined, ancestor: bigint) => {
       if (!ancestor) return false
       for (let current = entity; current; current = world.getParent(current)) {
@@ -116,7 +118,7 @@ ecs.registerComponent({
         // UI emits its own click. Do not toggle twice for the same gesture.
         if (isUi(data.target) || !isVideoArea(data.target) || !isVideoArea(data.endTarget)) return
         const movement = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
-        if (movement <= 0.025) toggle()
+        if (movement <= maxTapMovement) toggle()
       })
       .listen(world.events.globalId, ecs.input.UI_CLICK, (event) => {
         if (isVideoArea(event.target)) toggle()

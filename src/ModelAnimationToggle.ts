@@ -64,7 +64,7 @@ ecs.registerComponent({
     let lastWarning = ''
     let actionFinished = false
     const taps = new Set<number>()
-    const maxTapMovement = 0.025
+    const maxTapMovement = 0.05
 
     const getTarget = () => schemaAttribute.get(eid).target || eid
     const getLoadedModel = (target: bigint) =>

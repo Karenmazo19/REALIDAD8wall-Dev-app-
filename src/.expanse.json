@@ -455,7 +455,7 @@
       "components": {
         "a9a7d448-55ca-4fee-8251-d96e37868cab": {
           "id": "a9a7d448-55ca-4fee-8251-d96e37868cab",
-          "name": "Show Image On Tap Outside Video",
+          "name": "Show Image On Tap",
           "parameters": {
             "image": {
               "type": "entity",
@@ -674,7 +674,7 @@
         1,
         1
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -715,7 +715,7 @@
         1,
         1
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -756,7 +756,7 @@
         0.6928905210046782,
         0.6928905210046782
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -797,7 +797,7 @@
         0.6642137448450389,
         0.6642137448450389
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -838,7 +838,7 @@
         0.6347457019919254,
         0.6347457019919254
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -879,7 +879,7 @@
         0.6697978810261785,
         0.6697978810261785
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -920,7 +920,7 @@
         1,
         1
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -961,7 +961,7 @@
         1,
         1
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -1002,7 +1002,7 @@
         1,
         1
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
@@ -1178,7 +1178,7 @@
         1.0000000000000004,
         1
       ],
-      "hidden": false,
+      "hidden": true,
       "geometry": {
         "type": "plane",
         "width": 1.825,
