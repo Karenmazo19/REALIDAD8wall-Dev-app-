@@ -1,7 +1,7 @@
 {
   "type": "PLANAR",
   "properties": {
-    "top": 71,
+    "top": 106,
     "left": 0,
     "width": 822,
     "height": 1096,
@@ -18,6 +18,6 @@
     "thumbnailImage": "postalimpresa_thumbnail.jpg",
     "luminanceImage": "postalimpresa_luminance.jpg"
   },
-  "created": 1792027019277,
-  "updated": 1792027035106
+  "created": 1792084528820,
+  "updated": 1792084535219
 }

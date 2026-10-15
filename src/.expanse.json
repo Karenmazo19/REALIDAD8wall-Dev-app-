@@ -1200,6 +1200,86 @@
       "components": {},
       "name": "maizmolido.png",
       "order": 5.889160275544105
+    },
+    "57ccfe7f-2041-48e8-bc35-4d5e234a469a": {
+      "id": "57ccfe7f-2041-48e8-bc35-4d5e234a469a",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.14,
+        0.09,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
+      "components": {
+        "81f5d1ef-a727-4ce8-a830-627e2c490713": {
+          "id": "81f5d1ef-a727-4ce8-a830-627e2c490713",
+          "name": "Show Postal On Target",
+          "parameters": {
+            "image": {
+              "type": "entity",
+              "id": "9e3ff14e-7656-434c-9fc1-900d7ff4c470"
+            }
+          }
+        }
+      },
+      "name": "POSTAL",
+      "imageTarget": {
+        "name": "postalimpresa"
+      },
+      "order": 22.880780207155933
+    },
+    "9e3ff14e-7656-434c-9fc1-900d7ff4c470": {
+      "id": "9e3ff14e-7656-434c-9fc1-900d7ff4c470",
+      "position": [
+        0,
+        0,
+        0.011929295866882864
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1.0000000000000002,
+        1,
+        1
+      ],
+      "hidden": false,
+      "geometry": {
+        "type": "plane",
+        "width": 1,
+        "height": 1
+      },
+      "material": {
+        "type": "unlit",
+        "color": "#FFFFFF",
+        "textureSrc": {
+          "type": "asset",
+          "asset": "assets/postalrealidad.png"
+        },
+        "forceTransparent": false,
+        "depthWrite": false,
+        "side": "double",
+        "textureFiltering": "smooth"
+      },
+      "parentId": "57ccfe7f-2041-48e8-bc35-4d5e234a469a",
+      "components": {},
+      "name": "postalrealidad.png",
+      "order": 1.8696824912342471
     }
   },
   "spaces": {
