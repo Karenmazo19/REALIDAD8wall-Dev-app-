@@ -407,6 +407,10 @@
             "video": {
               "type": "entity",
               "id": "c19529a7-58b7-419c-808b-138af0f01110"
+            },
+            "image": {
+              "type": "entity",
+              "id": "6ff6e94b-c531-4e2e-abe2-1a5cca6b78b1"
             }
           }
         }
@@ -1245,7 +1249,7 @@
             },
             "imageTarget": {
               "type": "entity",
-              "id": "6ff6e94b-c531-4e2e-abe2-1a5cca6b78b1"
+              "id": "aa3df98b-a805-4097-a8ba-00adb40be101"
             },
             "playOnTargetFound": true,
             "pauseOnTargetLost": false

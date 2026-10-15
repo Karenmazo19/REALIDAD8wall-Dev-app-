@@ -17,6 +17,7 @@ ecs.registerComponent({
 
   schema: {
     video: ecs.eid,
+    image: ecs.eid,
   },
 
   stateMachine: ({world, eid, schemaAttribute}) => {
@@ -26,13 +27,19 @@ ecs.registerComponent({
     let nextToggleAt = 0
 
     const toggleVideo = () => {
-      const {video} = schemaAttribute.get(eid)
+      const {video, image} = schemaAttribute.get(eid)
       if (!video) return
 
       const videoObject = world.getEntity(video)
       const showVideo = videoObject.isHidden()
-      if (showVideo) videoObject.show()
-      else videoObject.hide()
+      const imageObject = image ? world.getEntity(image) : undefined
+      if (showVideo) {
+        videoObject.show()
+        imageObject?.show()
+      } else {
+        videoObject.hide()
+        imageObject?.hide()
+      }
 
       if (ecs.VideoControls.has(world, video)) {
         ecs.VideoControls.mutate(world, video, (controls) => {
@@ -43,7 +50,18 @@ ecs.registerComponent({
 
     ecs.defineState('ready').initial()
       .listen(world.events.globalId, ecs.events.REALITY_IMAGE_FOUND, ({data}) => {
-        if (targetName && isTargetEvent(data, targetName)) targetTracked = true
+        if (targetName && isTargetEvent(data, targetName)) {
+          targetTracked = true
+          const {video, image} = schemaAttribute.get(eid)
+          if (video) world.getEntity(video).show()
+          if (image) world.getEntity(image).show()
+          if (video && ecs.VideoControls.has(world, video)) {
+            ecs.VideoControls.mutate(world, video, (controls) => {
+              controls.paused = false
+              controls.loop = true
+            })
+          }
+        }
       })
       .listen(world.events.globalId, ecs.events.REALITY_IMAGE_LOST, ({data}) => {
         if (targetName && isTargetEvent(data, targetName)) targetTracked = false
