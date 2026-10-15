@@ -5,7 +5,8 @@ const onxrloaded = () => {
        require('../image-targets/mamey-02.json'),
             require('../image-targets/sancocho-02.json'),
       require('../image-targets/coco-04.json'),
-  require('../image-targets/arepa-03.json')
+      require('../image-targets/arepa-03.json'),
+      require('../image-targets/postalimpresa.json')
     ],
   })
 }

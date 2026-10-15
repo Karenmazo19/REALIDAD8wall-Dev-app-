@@ -1,0 +1,23 @@
+{
+  "type": "PLANAR",
+  "properties": {
+    "top": 71,
+    "left": 0,
+    "width": 822,
+    "height": 1096,
+    "isRotated": true,
+    "originalWidth": 822,
+    "originalHeight": 1280
+  },
+  "imagePath": "image-targets/postalimpresa_luminance.jpg",
+  "metadata": null,
+  "name": "postalimpresa",
+  "resources": {
+    "originalImage": "postalimpresa_original.jpg",
+    "croppedImage": "postalimpresa_cropped.jpg",
+    "thumbnailImage": "postalimpresa_thumbnail.jpg",
+    "luminanceImage": "postalimpresa_luminance.jpg"
+  },
+  "created": 1792027019277,
+  "updated": 1792027035106
+}
