@@ -4,7 +4,7 @@ ecs.registerComponent({
   name: 'Show Image On Tap',
 
   schema: {
-    // Entity to show when the model is tapped.
+    // Image entity to toggle when the model is tapped.
     // @label Image
     image: ecs.eid,
   },
@@ -39,7 +39,11 @@ ecs.registerComponent({
         if (distance > maxTapMovement) return
 
         const image = schemaAttribute.get(eid).image
-        if (image) world.getEntity(image).show()
+        if (image) {
+          const imageEntity = world.getEntity(image)
+          if (imageEntity.isHidden()) imageEntity.show()
+          else imageEntity.hide()
+        }
       })
   },
 })
