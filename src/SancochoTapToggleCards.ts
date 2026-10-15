@@ -9,6 +9,24 @@ const getImageTargetEntity = (world: ecs.World, eid: bigint) => {
   return undefined
 }
 
+const isTapForImageTarget = (
+  world: ecs.World,
+  imageTarget: bigint | undefined,
+  targetTracked: boolean,
+  ...touchTargets: Array<bigint | undefined>
+) => {
+  let hitImageTarget = false
+  for (const touchTarget of touchTargets) {
+    for (let current = touchTarget; current; current = world.getParent(current)) {
+      if (!ecs.ImageTarget.has(world, current)) continue
+      hitImageTarget = true
+      if (current !== imageTarget) return false
+      break
+    }
+  }
+  return hitImageTarget || targetTracked
+}
+
 const isImageTargetEvent = (data: unknown, targetName: string) =>
   !!data && typeof data === 'object' && 'name' in data && data.name === targetName
 
@@ -56,7 +74,9 @@ ecs.registerComponent({
         }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        if (targetTracked) taps.add(data.pointerId)
+        if (isTapForImageTarget(world, imageTarget, targetTracked, data.target)) {
+          taps.add(data.pointerId)
+        }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -66,7 +86,8 @@ ecs.registerComponent({
         if (data.touchCount > 1) taps.clear()
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
-        if (!taps.delete(data.pointerId) || !targetTracked) return
+        if (!taps.delete(data.pointerId)) return
+        if (!isTapForImageTarget(world, imageTarget, targetTracked, data.target, data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement || world.time.elapsed < nextToggleAt) return
 
