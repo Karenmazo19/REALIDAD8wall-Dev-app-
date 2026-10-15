@@ -87,54 +87,6 @@ registerImageToggle('Show Image On Tap')
 registerImageToggle('Show Corozo On Tap')
 
 ecs.registerComponent({
-  name: 'Show Sancocho Cards On Tap',
-
-  schema: {
-    costilla: ecs.eid,
-    mazorca: ecs.eid,
-    yuca: ecs.eid,
-    amee: ecs.eid,
-  },
-
-  stateMachine: ({world, eid, schemaAttribute}) => {
-    const taps = new Set<number>()
-    let lastToggleAt = 0
-    let cardsVisible = false
-    const {costilla, mazorca, yuca, amee} = schemaAttribute.get(eid)
-    const cards = [costilla, mazorca, yuca, amee]
-      .filter(Boolean)
-      .map(cardId => world.getEntity(cardId))
-
-    const toggleCards = () => {
-      cardsVisible = !cardsVisible
-      cards.forEach(card => (cardsVisible ? card.show() : card.hide()))
-    }
-
-    ecs.defineState('ready').initial()
-      .onExit(() => taps.clear())
-      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        taps.add(data.pointerId)
-      })
-      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
-        const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
-        if (distance > maxTapMovement) taps.delete(data.pointerId)
-      })
-      .listen(world.events.globalId, ecs.input.GESTURE_START, ({data}) => {
-        if (data.touchCount > 1) taps.clear()
-      })
-      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
-        if (!taps.delete(data.pointerId)) return
-        const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
-        if (distance > maxTapMovement) return
-        const now = Date.now()
-        if (now - lastToggleAt < 300) return
-        lastToggleAt = now
-        toggleCards()
-      })
-  },
-})
-
-ecs.registerComponent({
   name: 'Show Dulce Cards On Tap',
 
   schema: {

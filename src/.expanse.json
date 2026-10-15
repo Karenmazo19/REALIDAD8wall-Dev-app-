@@ -183,7 +183,30 @@
       "geometry": null,
       "material": null,
       "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
-      "components": {},
+      "components": {
+        "ccf58a62-3231-4c23-aee8-a0f928489ef6": {
+          "id": "ccf58a62-3231-4c23-aee8-a0f928489ef6",
+          "name": "Sancocho Tap Toggle Cards",
+          "parameters": {
+            "costilla": {
+              "type": "entity",
+              "id": "87e5f8c0-e905-4eda-bbba-8a9ae17610be"
+            },
+            "mazorca": {
+              "type": "entity",
+              "id": "6f3e7be9-1ba8-4023-a114-b38a1f37b9c2"
+            },
+            "yuca": {
+              "type": "entity",
+              "id": "cb823dbb-b29d-466c-8e77-2738a1d551d9"
+            },
+            "amee": {
+              "type": "entity",
+              "id": "6d3abf69-bc4a-48b2-a811-d2eea16bd5ad"
+            }
+          }
+        }
+      },
       "name": "SANCOCHO",
       "imageTarget": {
         "name": "sancocho-02"
@@ -236,30 +259,7 @@
       "geometry": null,
       "material": null,
       "parentId": "b6c3f923-a6d2-4bbe-ac36-cdebf0137c0c",
-      "components": {
-        "e52f8424-67d0-4f84-a1e8-616e43374e69": {
-          "id": "e52f8424-67d0-4f84-a1e8-616e43374e69",
-          "name": "Show Sancocho Cards On Tap",
-          "parameters": {
-            "costilla": {
-              "type": "entity",
-              "id": "87e5f8c0-e905-4eda-bbba-8a9ae17610be"
-            },
-            "mazorca": {
-              "type": "entity",
-              "id": "6f3e7be9-1ba8-4023-a114-b38a1f37b9c2"
-            },
-            "yuca": {
-              "type": "entity",
-              "id": "cb823dbb-b29d-466c-8e77-2738a1d551d9"
-            },
-            "amee": {
-              "type": "entity",
-              "id": "6d3abf69-bc4a-48b2-a811-d2eea16bd5ad"
-            }
-          }
-        }
-      },
+      "components": {},
       "gltfModel": {
         "src": {
           "type": "asset",
