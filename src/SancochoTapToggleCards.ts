@@ -38,6 +38,7 @@ ecs.registerComponent({
     mazorca: ecs.eid,
     yuca: ecs.eid,
     amee: ecs.eid,
+    video: ecs.eid,
   },
 
   stateMachine: ({world, eid, schemaAttribute}) => {
@@ -47,8 +48,8 @@ ecs.registerComponent({
     let nextToggleAt = 0
 
     const toggleCards = () => {
-      const {costilla, mazorca, yuca, amee} = schemaAttribute.get(eid)
-      const cards = [costilla, mazorca, yuca, amee]
+      const {costilla, mazorca, yuca, amee, video} = schemaAttribute.get(eid)
+      const cards = [costilla, mazorca, yuca, amee, video]
         .filter(Boolean)
         .map(cardId => world.getEntity(cardId))
       if (cards.length === 0) return
@@ -58,6 +59,13 @@ ecs.registerComponent({
       for (const card of cards) {
         if (showCards) card.show()
         else card.hide()
+      }
+
+      // Stop playback while hidden, and resume it from the user's tap when shown.
+      if (video && ecs.VideoControls.has(world, video)) {
+        ecs.VideoControls.mutate(world, video, (controls) => {
+          controls.paused = !showCards
+        })
       }
     }
 

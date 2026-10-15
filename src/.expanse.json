@@ -256,6 +256,10 @@
             "amee": {
               "type": "entity",
               "id": "6d3abf69-bc4a-48b2-a811-d2eea16bd5ad"
+            },
+            "video": {
+              "type": "entity",
+              "id": "c19529a7-58b7-419c-808b-138af0f01110"
             }
           }
         }
@@ -1063,7 +1067,8 @@
       "parentId": "aa3df98b-a805-4097-a8ba-00adb40be101",
       "components": {},
       "name": "play.png",
-      "order": 3.471659286422441
+      "order": 3.471659286422441,
+      "hidden": true
     },
     "6ff6e94b-c531-4e2e-abe2-1a5cca6b78b1": {
       "id": "6ff6e94b-c531-4e2e-abe2-1a5cca6b78b1",
@@ -1244,7 +1249,8 @@
       "order": 7.424605297866828,
       "videoControls": {
         "loop": true
-      }
+      },
+      "hidden": true
     }
   },
   "spaces": {
