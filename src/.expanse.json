@@ -1025,66 +1025,6 @@
       "name": "arrozcocoo.png",
       "order": 7.45601014744902
     },
-    "4bb52129-2700-40ba-adff-4a854d326369": {
-      "id": "4bb52129-2700-40ba-adff-4a854d326369",
-      "position": [
-        1.7763568394002505e-15,
-        -2.155506099843381,
-        0.7200000000000004
-      ],
-      "rotation": [
-        0,
-        -6.074370843274759e-33,
-        -3.851859888774472e-34,
-        1
-      ],
-      "scale": [
-        1,
-        1.0000000000000002,
-        1
-      ],
-      "geometry": {
-        "type": "plane",
-        "width": 1.825,
-        "height": 1
-      },
-      "material": {
-        "type": "video",
-        "color": "#FFFFFF",
-        "textureSrc": {
-          "type": "asset",
-          "asset": "assets/moler.mp4"
-        }
-      },
-      "parentId": "aa3df98b-a805-4097-a8ba-00adb40be101",
-      "components": {
-        "cfc46855-9001-4965-87eb-3df62965fcb2": {
-          "id": "cfc46855-9001-4965-87eb-3df62965fcb2",
-          "name": "Video Toggle Button",
-          "parameters": {
-            "playIcon": {
-              "type": "entity",
-              "id": "6fd455e6-0785-4946-b723-c26925110b9f"
-            },
-            "imageTarget": {
-              "type": "entity",
-              "id": "aa3df98b-a805-4097-a8ba-00adb40be101"
-            },
-            "videoEntity": {
-              "type": "entity",
-              "id": "4bb52129-2700-40ba-adff-4a854d326369"
-            }
-          }
-        }
-      },
-      "name": "moler.mp4",
-      "order": 4.443970835639972,
-      "videoControls": {
-        "paused": true,
-        "loop": false,
-        "volume": 1
-      }
-    },
     "9aa5e8c8-83e1-4da1-8e01-a9fc80c1f0ae": {
       "id": "9aa5e8c8-83e1-4da1-8e01-a9fc80c1f0ae",
       "position": [
@@ -1123,19 +1063,19 @@
     "6fd455e6-0785-4946-b723-c26925110b9f": {
       "id": "6fd455e6-0785-4946-b723-c26925110b9f",
       "position": [
-        0,
-        0,
-        0.02
+        -0.016550054755208876,
+        -1.7826467422182732,
+        0.049265758763179957
       ],
       "rotation": [
         0,
-        -6.074370843274759e-33,
-        -1.540743955509789e-33,
+        -2.4563298309392225e-32,
+        -5.392603844284259e-33,
         1
       ],
       "scale": [
         1,
-        1.0000000000000002,
+        1.0000000000000007,
         1
       ],
       "geometry": {
@@ -1155,10 +1095,10 @@
         "side": "double",
         "textureFiltering": "smooth"
       },
-      "parentId": "4bb52129-2700-40ba-adff-4a854d326369",
+      "parentId": "aa3df98b-a805-4097-a8ba-00adb40be101",
       "components": {},
       "name": "play.png",
-      "order": 6.3297685982448515
+      "order": 3.471659286422441
     },
     "6ff6e94b-c531-4e2e-abe2-1a5cca6b78b1": {
       "id": "6ff6e94b-c531-4e2e-abe2-1a5cca6b78b1",
@@ -1204,8 +1144,8 @@
     "57ccfe7f-2041-48e8-bc35-4d5e234a469a": {
       "id": "57ccfe7f-2041-48e8-bc35-4d5e234a469a",
       "position": [
-        0,
-        0,
+        0.1268801569875129,
+        -0.259871322690276,
         0
       ],
       "rotation": [
@@ -1245,7 +1185,7 @@
       "position": [
         0,
         0,
-        0.011929295866882864
+        0.011929295866882874
       ],
       "rotation": [
         0,
@@ -1254,9 +1194,9 @@
         1
       ],
       "scale": [
-        0.14,
-        0.09,
-        0
+        1.0814634643611276,
+        1.0814634643611278,
+        1.0814634643611267
       ],
       "hidden": false,
       "geometry": {
@@ -1280,6 +1220,63 @@
       "components": {},
       "name": "postalrealidad.png",
       "order": 1.8696824912342471
+    },
+    "c19529a7-58b7-419c-808b-138af0f01110": {
+      "id": "c19529a7-58b7-419c-808b-138af0f01110",
+      "position": [
+        1.7763568394002505e-14,
+        -1.8335331745499122,
+        0.03938395196006095
+      ],
+      "rotation": [
+        0.0033857682000997496,
+        -0.00006674374349477838,
+        0.01027375359113582,
+        0.9999414893413097
+      ],
+      "scale": [
+        0.9774761076294739,
+        1.4277474337752651,
+        1.0377342447477638
+      ],
+      "geometry": {
+        "type": "plane",
+        "width": 1,
+        "height": 1
+      },
+      "material": {
+        "type": "basic",
+        "color": "#FFFFFF",
+        "textureSrc": {
+          "type": "asset",
+          "asset": "assets/moler.mp4"
+        }
+      },
+      "parentId": "aa3df98b-a805-4097-a8ba-00adb40be101",
+      "components": {
+        "c86cccf5-9a0c-45fa-a2af-4bfecaefa2b3": {
+          "id": "c86cccf5-9a0c-45fa-a2af-4bfecaefa2b3",
+          "name": "Video Toggle Button",
+          "parameters": {
+            "videoEntity": {
+              "type": "entity",
+              "id": "c19529a7-58b7-419c-808b-138af0f01110"
+            },
+            "playIcon": {
+              "type": "entity",
+              "id": "6fd455e6-0785-4946-b723-c26925110b9f"
+            },
+            "imageTarget": {
+              "type": "entity",
+              "id": "6ff6e94b-c531-4e2e-abe2-1a5cca6b78b1"
+            },
+            "playOnTargetFound": true,
+            "pauseOnTargetLost": false
+          }
+        }
+      },
+      "name": "video maiz ",
+      "order": 7.424605297866828
     }
   },
   "spaces": {
