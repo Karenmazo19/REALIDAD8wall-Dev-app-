@@ -2,11 +2,29 @@ import * as ecs from '@8thwall/ecs'
 
 const maxTapMovement = 0.05
 
-const getImageTargetName = (world: ecs.World, eid: bigint) => {
+const getImageTargetEntity = (world: ecs.World, eid: bigint) => {
   for (let current: bigint | undefined = eid; current; current = world.getParent(current)) {
-    if (ecs.ImageTarget.has(world, current)) return ecs.ImageTarget.get(world, current).name
+    if (ecs.ImageTarget.has(world, current)) return current
   }
   return undefined
+}
+
+const isTapForImageTarget = (
+  world: ecs.World,
+  imageTarget: bigint | undefined,
+  targetTracked: boolean,
+  ...touchTargets: Array<bigint | undefined>
+) => {
+  let hitImageTarget = false
+  for (const touchTarget of touchTargets) {
+    for (let current = touchTarget; current; current = world.getParent(current)) {
+      if (!ecs.ImageTarget.has(world, current)) continue
+      hitImageTarget = true
+      if (current !== imageTarget) return false
+      break
+    }
+  }
+  return hitImageTarget || targetTracked
 }
 
 const isImageTargetEvent = (data: unknown, targetName: string) =>
@@ -23,7 +41,8 @@ const registerImageToggle = (name: string) => ecs.registerComponent({
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
-    const targetName = getImageTargetName(world, eid)
+    const imageTarget = getImageTargetEntity(world, eid)
+    const targetName = imageTarget ? ecs.ImageTarget.get(world, imageTarget).name : undefined
     let targetTracked = !targetName
 
     ecs.defineState('ready').initial()
@@ -38,7 +57,9 @@ const registerImageToggle = (name: string) => ecs.registerComponent({
         }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        if (targetTracked) taps.add(data.pointerId)
+        if (isTapForImageTarget(world, imageTarget, targetTracked, data.target)) {
+          taps.add(data.pointerId)
+        }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -49,6 +70,7 @@ const registerImageToggle = (name: string) => ecs.registerComponent({
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
         if (!taps.delete(data.pointerId)) return
+        if (!isTapForImageTarget(world, imageTarget, targetTracked, data.target, data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
 
@@ -76,7 +98,8 @@ ecs.registerComponent({
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
-    const targetName = getImageTargetName(world, eid)
+    const imageTarget = getImageTargetEntity(world, eid)
+    const targetName = imageTarget ? ecs.ImageTarget.get(world, imageTarget).name : undefined
     let targetTracked = !targetName
 
     const toggleCards = () => {
@@ -99,7 +122,9 @@ ecs.registerComponent({
         }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        if (targetTracked) taps.add(data.pointerId)
+        if (isTapForImageTarget(world, imageTarget, targetTracked, data.target)) {
+          taps.add(data.pointerId)
+        }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -110,6 +135,7 @@ ecs.registerComponent({
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
         if (!taps.delete(data.pointerId)) return
+        if (!isTapForImageTarget(world, imageTarget, targetTracked, data.target, data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
         toggleCards()
@@ -127,7 +153,8 @@ ecs.registerComponent({
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
-    const targetName = getImageTargetName(world, eid)
+    const imageTarget = getImageTargetEntity(world, eid)
+    const targetName = imageTarget ? ecs.ImageTarget.get(world, imageTarget).name : undefined
     let targetTracked = !targetName
 
     const toggleCards = () => {
@@ -151,7 +178,9 @@ ecs.registerComponent({
         }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        if (targetTracked) taps.add(data.pointerId)
+        if (isTapForImageTarget(world, imageTarget, targetTracked, data.target)) {
+          taps.add(data.pointerId)
+        }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -162,6 +191,7 @@ ecs.registerComponent({
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
         if (!taps.delete(data.pointerId)) return
+        if (!isTapForImageTarget(world, imageTarget, targetTracked, data.target, data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
         toggleCards()
