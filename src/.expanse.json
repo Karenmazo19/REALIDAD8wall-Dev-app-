@@ -615,6 +615,8 @@
           "type": "asset",
           "asset": "assets/nispero.png"
         },
+        "forceTransparent": true,
+        "depthWrite": false,
         "side": "double",
         "textureFiltering": "smooth"
       },
