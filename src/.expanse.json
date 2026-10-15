@@ -568,8 +568,14 @@
             "image": {
               "type": "entity",
               "id": "00d8f44c-3c67-4d88-b1a5-4beb83b5931c"
-            },
-            "image2": {
+            }
+          }
+        },
+        "8b8822b4-5b26-40fc-98c5-0eef3c3fd6a9": {
+          "id": "8b8822b4-5b26-40fc-98c5-0eef3c3fd6a9",
+          "name": "Show Corozo On Tap",
+          "parameters": {
+            "image": {
               "type": "entity",
               "id": "0d7a5362-6672-4658-843c-27d95063e0fd"
             }

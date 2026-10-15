@@ -1,14 +1,12 @@
 import * as ecs from '@8thwall/ecs'
 
-ecs.registerComponent({
-  name: 'Show Image On Tap',
+const registerImageToggle = (name: string) => ecs.registerComponent({
+  name,
 
   schema: {
     // Image entity to toggle when the model is tapped.
     // @label Image
     image: ecs.eid,
-    // @label Second Image
-    image2: ecs.eid,
   },
 
   stateMachine: ({world, eid, schemaAttribute}) => {
@@ -32,13 +30,14 @@ ecs.registerComponent({
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
 
-        const {image, image2} = schemaAttribute.get(eid)
-        for (const imageId of [image, image2]) {
-          if (!imageId) continue
-          const imageEntity = world.getEntity(imageId)
-          if (imageEntity.isHidden()) imageEntity.show()
-          else imageEntity.hide()
-        }
+        const image = schemaAttribute.get(eid).image
+        if (!image) return
+        const imageEntity = world.getEntity(image)
+        if (imageEntity.isHidden()) imageEntity.show()
+        else imageEntity.hide()
       })
   },
 })
+
+registerImageToggle('Show Image On Tap')
+registerImageToggle('Show Corozo On Tap')
