@@ -601,7 +601,7 @@
         0.9999999999999994,
         0.9999999999999994
       ],
-      "hidden": false,
+      "hidden": true,
       "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
       "geometry": {
         "type": "plane",

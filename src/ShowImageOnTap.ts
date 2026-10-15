@@ -13,10 +13,12 @@ ecs.registerComponent({
     const taps = new Set<number>()
     const maxTapMovement = 0.025
 
-    const hitsModel = (target: bigint | undefined) => {
+    const hitsModelOrTarget = (target: bigint | undefined) => {
+      if (!target) return true
+      const imageTarget = world.getParent(eid)
       for (let current = target; current; current = world.getParent(current)) {
         if (ecs.Ui.has(world, current)) return false
-        if (current === eid) return true
+        if (current === eid || current === imageTarget) return true
       }
       return false
     }
@@ -24,7 +26,7 @@ ecs.registerComponent({
     ecs.defineState('ready').initial()
       .onExit(() => taps.clear())
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        if (hitsModel(data.target)) taps.add(data.pointerId)
+        if (hitsModelOrTarget(data.target)) taps.add(data.pointerId)
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -34,7 +36,8 @@ ecs.registerComponent({
         if (data.touchCount > 1) taps.clear()
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
-        if (!taps.delete(data.pointerId) || !hitsModel(data.target) || !hitsModel(data.endTarget)) return
+        if (!taps.delete(data.pointerId) || !hitsModelOrTarget(data.target) ||
+            !hitsModelOrTarget(data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
 
