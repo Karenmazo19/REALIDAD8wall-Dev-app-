@@ -256,10 +256,6 @@
             "amee": {
               "type": "entity",
               "id": "6d3abf69-bc4a-48b2-a811-d2eea16bd5ad"
-            },
-            "video": {
-              "type": "entity",
-              "id": "c19529a7-58b7-419c-808b-138af0f01110"
             }
           }
         }
@@ -403,7 +399,18 @@
       "geometry": null,
       "material": null,
       "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
-      "components": {},
+      "components": {
+        "7bf1f2a0-56a9-4e43-b75d-44abc6000001": {
+          "id": "7bf1f2a0-56a9-4e43-b75d-44abc6000001",
+          "name": "Arepa Video Tap Toggle",
+          "parameters": {
+            "video": {
+              "type": "entity",
+              "id": "c19529a7-58b7-419c-808b-138af0f01110"
+            }
+          }
+        }
+      },
       "name": "AREPA",
       "imageTarget": {
         "name": "arepa-03"
