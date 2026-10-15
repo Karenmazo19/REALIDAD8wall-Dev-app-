@@ -98,6 +98,10 @@ ecs.registerComponent({
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
+    const imageTarget = getImageTargetEntity(world, eid)
+    const targetName = imageTarget ? ecs.ImageTarget.get(world, imageTarget).name : undefined
+    let targetTracked = !targetName
+    let lastToggleAt = 0
 
     const toggleCards = () => {
       const {costilla, mazorca, yuca, amee} = schemaAttribute.get(eid)
@@ -109,8 +113,19 @@ ecs.registerComponent({
 
     ecs.defineState('ready').initial()
       .onExit(() => taps.clear())
+      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_FOUND, ({data}) => {
+        if (targetName && isImageTargetEvent(data, targetName)) targetTracked = true
+      })
+      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_LOST, ({data}) => {
+        if (targetName && isImageTargetEvent(data, targetName)) {
+          targetTracked = false
+          taps.clear()
+        }
+      })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        taps.add(data.pointerId)
+        if (isTapForImageTarget(world, imageTarget, targetTracked, data.target)) {
+          taps.add(data.pointerId)
+        }
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -121,8 +136,12 @@ ecs.registerComponent({
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
         if (!taps.delete(data.pointerId)) return
+        if (!isTapForImageTarget(world, imageTarget, targetTracked, data.target, data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
+        const now = Date.now()
+        if (now - lastToggleAt < 300) return
+        lastToggleAt = now
         toggleCards()
       })
   },
