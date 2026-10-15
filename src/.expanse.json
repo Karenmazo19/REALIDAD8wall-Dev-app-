@@ -567,7 +567,11 @@
           "parameters": {
             "image": {
               "type": "entity",
-              "id": "8fe7341f-6ea1-496c-8ce1-3b68565b256e"
+              "id": "00d8f44c-3c67-4d88-b1a5-4beb83b5931c"
+            },
+            "image2": {
+              "type": "entity",
+              "id": "0d7a5362-6672-4658-843c-27d95063e0fd"
             }
           }
         }
@@ -583,29 +587,69 @@
       "name": "Untitled.glb",
       "order": 12.4397477382269
     },
-    "8fe7341f-6ea1-496c-8ce1-3b68565b256e": {
-      "id": "8fe7341f-6ea1-496c-8ce1-3b68565b256e",
+    "0d7a5362-6672-4658-843c-27d95063e0fd": {
+      "id": "0d7a5362-6672-4658-843c-27d95063e0fd",
       "position": [
-        -1.10859968046762,
-        -0.3439186973977432,
-        1.1125579613824534
+        1.3713194606148065,
+        1.4960506325695002,
+        1.1937675129057639
       ],
       "rotation": [
-        -6.123233995736767e-17,
-        6.123233995736765e-17,
-        6.123233995736762e-17,
+        0,
+        -7.395570986446989e-32,
+        2.7369110631344096e-48,
         1
       ],
       "scale": [
         0.9999999999999992,
-        0.9999999999999994,
-        0.9999999999999994
+        1,
+        1
       ],
-      "hidden": true,
-      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
+      "hidden": false,
       "geometry": {
         "type": "plane",
-        "width": 1,
+        "width": 1.825,
+        "height": 1
+      },
+      "material": {
+        "type": "unlit",
+        "color": "#FFFFFF",
+        "textureSrc": {
+          "type": "asset",
+          "asset": "assets/corozo.png"
+        },
+        "forceTransparent": true,
+        "depthWrite": false,
+        "side": "double",
+        "textureFiltering": "smooth"
+      },
+      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
+      "components": {},
+      "name": "corozo.png",
+      "order": 14.885706992150334
+    },
+    "00d8f44c-3c67-4d88-b1a5-4beb83b5931c": {
+      "id": "00d8f44c-3c67-4d88-b1a5-4beb83b5931c",
+      "position": [
+        -1.7233952726030104,
+        -0.5476530342383032,
+        1.1937675129057617
+      ],
+      "rotation": [
+        0,
+        -4.930380657631326e-32,
+        6.842277657836027e-49,
+        1
+      ],
+      "scale": [
+        0.9999999999999992,
+        1,
+        1
+      ],
+      "hidden": false,
+      "geometry": {
+        "type": "plane",
+        "width": 1.825,
         "height": 1
       },
       "material": {
@@ -620,9 +664,10 @@
         "side": "double",
         "textureFiltering": "smooth"
       },
+      "parentId": "12822041-1ac7-4610-8baf-6b37e9aa4d91",
       "components": {},
       "name": "nispero.png",
-      "order": 13.864829111718588
+      "order": 16.80865407797771
     }
   },
   "spaces": {

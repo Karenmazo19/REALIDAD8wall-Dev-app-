@@ -7,6 +7,8 @@ ecs.registerComponent({
     // Image entity to toggle when the model is tapped.
     // @label Image
     image: ecs.eid,
+    // @label Second Image
+    image2: ecs.eid,
   },
 
   stateMachine: ({world, eid, schemaAttribute}) => {
@@ -30,9 +32,10 @@ ecs.registerComponent({
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
 
-        const image = schemaAttribute.get(eid).image
-        if (image) {
-          const imageEntity = world.getEntity(image)
+        const {image, image2} = schemaAttribute.get(eid)
+        for (const imageId of [image, image2]) {
+          if (!imageId) continue
+          const imageEntity = world.getEntity(imageId)
           if (imageEntity.isHidden()) imageEntity.show()
           else imageEntity.hide()
         }
