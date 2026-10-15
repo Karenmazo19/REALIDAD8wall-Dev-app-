@@ -35,7 +35,10 @@
           "desktop": "disabled",
           "xrCameraType": "world",
           "headset": "disabled",
-          "phone": "AR"
+          "phone": "AR",
+          "world": {
+            "disableWorldTracking": true
+          }
         }
       },
       "components": {},
@@ -696,7 +699,18 @@
       "geometry": null,
       "material": null,
       "parentId": "88453035-dc0f-486d-868a-8ff7c2fda864",
-      "components": {},
+      "components": {
+        "9d0f34fa-8f4c-4e03-a5f0-b97f5e4f1bd3": {
+          "id": "9d0f34fa-8f4c-4e03-a5f0-b97f5e4f1bd3",
+          "name": "Show Postal On Target",
+          "parameters": {
+            "image": {
+              "type": "entity",
+              "id": "a37f18fe-ca74-44ff-ad4a-0e91a28f6c54"
+            }
+          }
+        }
+      },
       "name": "POSTAL",
       "imageTarget": {
         "name": "postalimpresa"
@@ -738,7 +752,8 @@
       "parentId": "7af6a8bc-542c-44d9-8c8c-6ffe83a7d41d",
       "components": {},
       "name": "postalrealidad.jpeg",
-      "order": 22.959103160318012
+      "order": 22.959103160318012,
+      "hidden": true
     }
   },
   "spaces": {
