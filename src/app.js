@@ -1,5 +1,6 @@
 const onxrloaded = () => {
   XR8.XrController.configure({
+    disableWorldTracking: true,
     imageTargetData: [
       require('../image-targets/corozo-05.json'),  
        require('../image-targets/mamey-02.json'),
