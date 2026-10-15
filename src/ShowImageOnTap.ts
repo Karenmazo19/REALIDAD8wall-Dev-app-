@@ -99,8 +99,7 @@ ecs.registerComponent({
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
     const imageTarget = getImageTargetEntity(world, eid)
-    const targetName = imageTarget ? ecs.ImageTarget.get(world, imageTarget).name : undefined
-    let targetTracked = !targetName
+    const touchTarget = imageTarget || world.events.globalId
 
     const toggleCards = () => {
       const {costilla, mazorca, yuca, amee} = schemaAttribute.get(eid)
@@ -112,30 +111,18 @@ ecs.registerComponent({
 
     ecs.defineState('ready').initial()
       .onExit(() => taps.clear())
-      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_FOUND, ({data}) => {
-        if (targetName && isImageTargetEvent(data, targetName)) targetTracked = true
+      .listen(touchTarget, ecs.input.SCREEN_TOUCH_START, ({data}) => {
+        taps.add(data.pointerId)
       })
-      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_LOST, ({data}) => {
-        if (targetName && isImageTargetEvent(data, targetName)) {
-          targetTracked = false
-          taps.clear()
-        }
-      })
-      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        if (isTapForImageTarget(world, imageTarget, targetTracked, data.target)) {
-          taps.add(data.pointerId)
-        }
-      })
-      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
+      .listen(touchTarget, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) taps.delete(data.pointerId)
       })
-      .listen(world.events.globalId, ecs.input.GESTURE_START, ({data}) => {
+      .listen(touchTarget, ecs.input.GESTURE_START, ({data}) => {
         if (data.touchCount > 1) taps.clear()
       })
-      .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
+      .listen(touchTarget, ecs.input.SCREEN_TOUCH_END, ({data}) => {
         if (!taps.delete(data.pointerId)) return
-        if (!isTapForImageTarget(world, imageTarget, targetTracked, data.target, data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
         toggleCards()
