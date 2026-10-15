@@ -98,34 +98,22 @@ ecs.registerComponent({
 
   stateMachine: ({world, eid, schemaAttribute}) => {
     const taps = new Set<number>()
-    const imageTarget = getImageTargetEntity(world, eid)
-    const targetName = imageTarget ? ecs.ImageTarget.get(world, imageTarget).name : undefined
-    let targetTracked = !targetName
     let lastToggleAt = 0
+    let cardsVisible = false
+    const {costilla, mazorca, yuca, amee} = schemaAttribute.get(eid)
+    const cards = [costilla, mazorca, yuca, amee]
+      .filter(Boolean)
+      .map(cardId => world.getEntity(cardId))
 
     const toggleCards = () => {
-      const {costilla, mazorca, yuca, amee} = schemaAttribute.get(eid)
-      const cardIds = [costilla, mazorca, yuca, amee].filter(Boolean)
-      const cards = cardIds.map(cardId => world.getEntity(cardId))
-      const shouldShow = cards.some(card => card.isHidden())
-      cards.forEach(card => (shouldShow ? card.show() : card.hide()))
+      cardsVisible = !cardsVisible
+      cards.forEach(card => (cardsVisible ? card.show() : card.hide()))
     }
 
     ecs.defineState('ready').initial()
       .onExit(() => taps.clear())
-      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_FOUND, ({data}) => {
-        if (targetName && isImageTargetEvent(data, targetName)) targetTracked = true
-      })
-      .listen(world.events.globalId, ecs.events.REALITY_IMAGE_LOST, ({data}) => {
-        if (targetName && isImageTargetEvent(data, targetName)) {
-          targetTracked = false
-          taps.clear()
-        }
-      })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_START, ({data}) => {
-        if (isTapForImageTarget(world, imageTarget, targetTracked, data.target)) {
-          taps.add(data.pointerId)
-        }
+        taps.add(data.pointerId)
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_MOVE, ({data}) => {
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
@@ -136,7 +124,6 @@ ecs.registerComponent({
       })
       .listen(world.events.globalId, ecs.input.SCREEN_TOUCH_END, ({data}) => {
         if (!taps.delete(data.pointerId)) return
-        if (!isTapForImageTarget(world, imageTarget, targetTracked, data.target, data.endTarget)) return
         const distance = Math.hypot(data.position.x - data.start.x, data.position.y - data.start.y)
         if (distance > maxTapMovement) return
         const now = Date.now()
